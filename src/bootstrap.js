@@ -11,14 +11,14 @@ const createStoreWithMiddleware = applyMiddleware()(createStore);
 import "./style/main.scss";
 
 function main() {
-  ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>,
-    document.querySelector(".app-wrapper")
-  );
+    ReactDOM.render(
+        <Provider store={ createStoreWithMiddleware(reducers) }>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>,
+        document.querySelector(".app-wrapper")
+    );
 }
 
 document.addEventListener("DOMContentLoaded", main);
