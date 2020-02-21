@@ -11,7 +11,7 @@ export default class PortfolioContainer extends Component {
             data: [
                 { title: 'Vivint' },
                 { title: 'Vox' },
-                { title: 'Grove Creek' },
+                { title: 'Grove Creek Foods' },
             ]
         };
 
