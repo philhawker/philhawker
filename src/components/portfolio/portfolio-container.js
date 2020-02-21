@@ -12,7 +12,7 @@ export default class PortfolioContainer extends Component {
         const data = ['Vivint', 'Vox', 'Grove Creek'];
 
         return data.map(item => {
-            return <h3>{ item }</h3>;
+            return <PortfolioItem title={ item } />;
 
         });
 
@@ -27,4 +27,4 @@ export default class PortfolioContainer extends Component {
             </div>
         );
     }
-}
+};;;
