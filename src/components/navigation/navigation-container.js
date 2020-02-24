@@ -13,15 +13,15 @@ export default class NavigationContainer extends Component {
                     Home
                 </NavLink>
 
-                <NavLink to='/about-me'>
+                <NavLink to='/about-me' activeClassName='nav-link-active'>
                     About
                 </NavLink>
 
-                <NavLink to='/contact'>
+                <NavLink to='/contact' activeClassName='nav-link-active'>
                     Contact
                 </NavLink>
 
-                <NavLink to='/Blog'>
+                <NavLink to='/Blog' activeClassName='nav-link-active'>
                     Blog
                 </NavLink>
 
