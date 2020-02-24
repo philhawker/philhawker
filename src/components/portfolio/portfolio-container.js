@@ -15,7 +15,7 @@ export default class PortfolioContainer extends Component {
             ]
         };
 
-        this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this)  //this binding needs to be done whenever implementing a click listener down below
+        this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this)  //this binding needs to be done whenever implementing a click listener or event listener down below
 
         console.log('Portfolio Container has rendered');
     }
