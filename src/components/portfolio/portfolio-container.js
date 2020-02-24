@@ -9,27 +9,28 @@ export default class PortfolioContainer extends Component {
         this.state = {
             pageTitle: 'Welcome to my portfolio',
             data: [
-                { title: 'Vivint' },
-                { title: 'Vox' },
-                { title: 'Grove Creek Foods' },
+                { title: 'Vivint', category: 'eCommerce' },
+                { title: 'Vox', category: 'Scheduling' },
+                { title: 'Grove Creek Foods', category: 'Enterprise' },
+                { title: 'Bottega', category: 'eCommerce' }
             ]
         };
 
-        this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this)  //this binding needs to be done whenever implementing a click listener or event listener down below
-        //JUST USE AN ARROW FUNCTION TO SOLVE THIS
-        console.log('Portfolio Container has rendered');
+        this.handleFilter = this.handleFilter.bind(this)
+    }
+
+    handleFilter(filter) {
+        this.setState({
+            data: this.state.data.filter(item => {
+                return item.category === filter
+            })
+        })
     }
 
     portfolioItems() {
         return this.state.data.map(item => {
             return <PortfolioItem title={item.title} url={'Google.com'} />;
         });
-    }
-
-    handlePageTitleUpdate() {
-        this.setState({
-            pageTitle: 'Soemthing Else'
-        })
     }
 
 
@@ -39,11 +40,12 @@ export default class PortfolioContainer extends Component {
 
                 <h2>{this.state.pageTitle}</h2>
 
+                <button onClick={() => this.handleFilter('eCommerce')}>eCommerce</button>
+                <button onClick={() => this.handleFilter('Scheduling')}>Scheduling</button>
+                <button onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
+
                 {this.portfolioItems()}
 
-                <hr />
-
-                <button onClick={this.handlePageTitleUpdate}>Change Title</button>
             </div>
         );
     }
