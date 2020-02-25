@@ -42,9 +42,7 @@ export default class PortfolioContainer extends Component {
             return (
                 <PortfolioItem
                     key={item.id}
-                    title={item.title}
-                    url={item.url}
-                    slug={item.id}
+                    item={item}
                 />
             )
         });
@@ -78,4 +76,4 @@ export default class PortfolioContainer extends Component {
             </div>
         );
     }
-};;;
+}
