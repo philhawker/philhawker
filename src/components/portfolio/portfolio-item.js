@@ -8,7 +8,7 @@ export default function portfolioItems(props) {
     // - logo
     // - description: description
     // - id: id
-    const { id, description, thumb_image_url, logo } = props.item
+    const { id, description, thumb_image_url, logo_url } = props.item
     return (
         <div className='portfolio-item-wrapper'>
             <div
@@ -18,10 +18,13 @@ export default function portfolioItems(props) {
                 }}
             />
 
+            <div className='img-text-wrapper'>
+                <div className='logo-wrapper'>
+                    <img src={logo_url} />
+                </div>
 
-            <img src={logo} />
-            <div>{description}</div>
-            <Link to={`/portfolio/${id}`}>Link</Link>
+                <div className='subtitle'>{description}</div>
+            </div>
         </div>
     );
 }
