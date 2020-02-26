@@ -1,30 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 
-export default function portfolioItems(props) {
-    //  data that well need:
-    // - background image: thumb_image_url
-    // - logo
-    // - description: description
-    // - id: id
-    const { id, description, thumb_image_url, logo_url } = props.item
-    return (
-        <div className='portfolio-item-wrapper'>
-            <div
-                className='portfolio-img-background'
-                style={{
-                    backgroundImage: 'url(' + thumb_image_url + ')'
-                }}
-            />
+export default class PortfolioItem extends Component {
+    constructor(props) {
+        super(props)
+    }
 
-            <div className='img-text-wrapper'>
-                <div className='logo-wrapper'>
-                    <img src={logo_url} />
+    render() {
+        const { id, description, thumb_image_url, logo_url } = this.props.item
+        return (
+            <div className='portfolio-item-wrapper'>
+                <div
+                    className='portfolio-img-background'
+                    style={{
+                        backgroundImage: 'url(' + thumb_image_url + ')'
+                    }}
+                />
+
+                <div className='img-text-wrapper'>
+                    <div className='logo-wrapper'>
+                        <img src={logo_url} />
+                    </div>
+
+                    <div className='subtitle'>{description}</div>
                 </div>
-
-                <div className='subtitle'>{description}</div>
             </div>
-        </div>
-    );
+        );
+    }
 }
