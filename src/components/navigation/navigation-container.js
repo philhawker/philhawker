@@ -1,4 +1,6 @@
 import React from 'react'
+import axios from 'axios'
+import { withRouter } from 'react-router' // higher order component. noticed it isnt capatalized
 import { NavLink } from 'react-router-dom'
 
 const NavigationComponent = (props) => {
@@ -11,6 +13,19 @@ const NavigationComponent = (props) => {
             </div>
         )
     }
+
+    const handleSignOut = () => {
+        axios.delete('https://api.devcamp.space/logout', {withCredentials: true}).then(response => {
+            if (response.status === 200) {  //should always send a 200 status if the delete was successful
+                props.history.push('/')
+                props.handleSuccessfulLogout()
+            }
+            return response.data  // this isnt actually returning anything. its poor practice to not include some type of response after IF statement
+        }).catch( error => {
+            console.log('Error signing out', error)
+        })
+    }
+
     return (
         <div className='nav-wrapper'>
             <div className='left-side'>
@@ -35,9 +50,13 @@ const NavigationComponent = (props) => {
                 {props.loggedInStatus === 'LOGGED_IN' ? dynamicLink('/blog', 'Blog') : null}
             </div>
 
-            <div className='right-side'>PHIL M. HAWKER</div>
+            <div className='right-side'>
+            PHIL M. HAWKER
+
+            {props.loggedInStatus === 'LOGGED_IN' ? <a onClick={handleSignOut}>Log Out</a> : null}
+            </div>
         </div>
         )
     }
 
-export default NavigationComponent
+export default withRouter(NavigationComponent)
