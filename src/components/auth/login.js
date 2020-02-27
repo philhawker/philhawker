@@ -21,6 +21,8 @@ export default class Login extends Component {
     }
     
     handleSubmit(event) {
+        console.log('handle submit', this.state.email, this.state.email)
+        event.preventDefault() // this prevents email and password being fed to the console
     }
 
     render() {
