@@ -31,7 +31,7 @@ export default class Login extends Component {
                 password: this.state.password
             }
         },
-        {withCredentials: true}
+        {withCredentials: true}  // this is referring to the COOKIES values, not login credentials
         ).then(response => {
             if (response.data.status === 'created') {
                 console.log('You can come in...')
