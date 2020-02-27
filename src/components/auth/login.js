@@ -34,17 +34,19 @@ export default class Login extends Component {
         {withCredentials: true}  // this is referring to the COOKIES values, not login credentials
         ).then(response => {
             if (response.data.status === 'created') {
-                console.log('You can come in...')
+                this.props.handleSuccessfulAuth();
             } else {
                 this.setState({
                     errorText: 'Wrong email or password'
                 })
+                this.props.handleUnsuccessfulAuth();
             }
         })
         .catch(error => {
             this.setState({
                 errorText: 'An error occured'
             })
+            this.props.handleUnsuccessfulAuth();
         })
 
         event.preventDefault() // this prevents email and password being fed to the console
