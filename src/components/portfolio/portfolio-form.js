@@ -21,6 +21,19 @@ export default class PortfolioForm extends Component {
 
     }
 
+    buildForm() {
+        let formData = new FormData() // when this new form is created, its empty by default. must append value to the new form. done below
+
+        formData.append('portfolio_item[name]', this.state.name)  // in the argument, structured as (key:value). name is in [] because the api expects an object(dictionary)
+        formData.append('portfolio_item[description]', this.state.description)
+        formData.append('portfolio_item[url]', this.state.url)
+        formData.append('portfolio_item[category]', this.state.category)
+        formData.append('portfolio_item[position]', this.state.position)
+        // next, the value needs to be returned, added to handleSubmit() function, then called below
+        
+        return formData
+    }
+
     handleChange(event) {
         this.setState({
           [event.target.name]: event.target.value  
@@ -29,7 +42,7 @@ export default class PortfolioForm extends Component {
 
 
     handleSubmit(event) {
-        console.log('event', event)
+        this.buildForm()
         event.preventDefault()
     }
 
