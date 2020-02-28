@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
 
+// call api
+// bring portfolio items in
+// update state
+// make all of this happen automatically using lifecycle hook
+
+
 export default class PortfolioManager extends Component {
     render () {
         return (
