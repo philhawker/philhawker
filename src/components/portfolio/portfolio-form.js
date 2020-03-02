@@ -29,9 +29,8 @@ export default class PortfolioForm extends Component {
         formData.append('portfolio_item[url]', this.state.url)
         formData.append('portfolio_item[category]', this.state.category)
         formData.append('portfolio_item[position]', this.state.position)
-        // next, the value needs to be returned, added to handleSubmit() function, then called below
+        // next, the value nee
         
-        return formData
     }
 
     handleChange(event) {
