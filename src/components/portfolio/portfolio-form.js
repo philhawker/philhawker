@@ -58,7 +58,7 @@ export default class PortfolioForm extends Component {
         return {
             iconFiletypes: ['.jpg', '.png'],
             showFiletypeIcon: true,
-            postUrl: 'https://httpbin.org/posts' //mock url. special url that will always return true
+            postUrl: 'https://philhawker.devcamp.space/portfolio/portfolio_items', //mock url. special url that will always return true
         }
     }
 
@@ -187,26 +187,26 @@ export default class PortfolioForm extends Component {
                     </div>
 
                     <div className='image-uploaders'>
-                    <DropzoneComponent
-                        ref={this.thumbRef}
-                        config={this.componentConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleThumbDrop()}
-                        />
+                        <DropzoneComponent
+                            ref={this.thumbRef}
+                            config={this.componentConfig()}
+                            djsConfig={this.djsConfig()}
+                            eventHandlers={this.handleThumbDrop()}
+                            />
 
-                    <DropzoneComponent
-                        ref={ this.bannerRef }
-                        config={this.componentConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleBannerDrop()}
-                        />
+                        <DropzoneComponent
+                            ref={ this.bannerRef }
+                            config={this.componentConfig()}
+                            djsConfig={this.djsConfig()}
+                            eventHandlers={this.handleBannerDrop()}
+                            />
 
-                    <DropzoneComponent
-                        ref={ this.logoRef }
-                        config={this.componentConfig()}
-                        djsConfig={this.djsConfig()}
-                        eventHandlers={this.handleLogoDrop()}
-                        />
+                        <DropzoneComponent
+                            ref={ this.logoRef }
+                            config={this.componentConfig()}
+                            djsConfig={this.djsConfig()}
+                            eventHandlers={this.handleLogoDrop()}
+                            />
                     </div>
 
                     <div>

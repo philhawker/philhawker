@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 
 import PortfolioSidebarList from '../portfolio/portfolio-sidebar-list'
-import PortfolioForm from '../portfolio/portfolio-form';
+import PortfolioForm from '../portfolio/portfolio-form'
 
 // call api
 // bring portfolio items in
