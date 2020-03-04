@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import axios from "axios";
 import DropzoneComponent from "react-dropzone-component";
@@ -20,7 +19,7 @@ export default class PortfolioForm extends Component {
             banner_image: "",
             logo: "",
             editMode: false,
-            apiUrl: "https://philhawker.devcamp.space/portfolio/portfolio_items",
+            apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
             apiAction: "post"
         };
 
@@ -79,7 +78,7 @@ export default class PortfolioForm extends Component {
                 position: position || "",
                 url: url || "",
                 editMode: true,
-                apiUrl: `https://philhawker.devcamp.space/portfolio/portfolio_items/${id}`,
+                apiUrl: `https://jordan.devcamp.space/portfolio/portfolio_items/${id}`,
                 apiAction: "patch",
                 thumb_image_url: thumb_image_url || "",
                 banner_image_url: banner_image_url || "",
@@ -175,7 +174,7 @@ export default class PortfolioForm extends Component {
                     banner_image: "",
                     logo: "",
                     editMode: false,
-                    apiUrl: "https://philhawker.devcamp.space/portfolio/portfolio_items",
+                    apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
                     apiAction: "post"
                 });
 
@@ -250,7 +249,7 @@ export default class PortfolioForm extends Component {
                             <div className="image-removal-link">
                                 <a onClick={ () => this.deleteImage("thumb_image") }>
                                     Remove file
-                </a>
+                                 </a>
                             </div>
                         </div>
                     ) : (
@@ -271,7 +270,7 @@ export default class PortfolioForm extends Component {
                             <div className="image-removal-link">
                                 <a onClick={ () => this.deleteImage("banner_image") }>
                                     Remove file
-                </a>
+                                </a>
                             </div>
                         </div>
                     ) : (
@@ -308,7 +307,7 @@ export default class PortfolioForm extends Component {
                 <div>
                     <button className="btn" type="submit">
                         Save
-          </button>
+                    </button>
                 </div>
             </form>
         );
