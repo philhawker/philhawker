@@ -11,30 +11,30 @@ export default class PortfolioForm extends Component {
         super(props);
 
         this.state = {
-            name: "",
-            description: "",
-            category: "eCommerce",
-            position: "",
-            url: "",
-            thumb_image: "",
-            banner_image: "",
-            logo: "",
+            name: '',
+            description: '',
+            category: 'eCommerce',
+            position: '',
+            url: '',
+            thumb_image: '',
+            banner_image: '',
+            logo: '',
             editMode: false,
-            apiUrl: "https://philhawker.devcamp.space/portfolio/portfolio_items",
+            apiUrl: 'https://philhawker.devcamp.space/portfolio/portfolio_items',
             apiAction: 'post'
         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.componentConfig = this.componentConfig.bind(this);
-        this.djsConfig = this.djsConfig.bind(this);
-        this.handleThumbDrop = this.handleThumbDrop.bind(this);
-        this.handleBannerDrop = this.handleBannerDrop.bind(this);
-        this.handleLogoDrop = this.handleLogoDrop.bind(this);
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.componentConfig = this.componentConfig.bind(this)
+        this.djsConfig = this.djsConfig.bind(this)
+        this.handleThumbDrop = this.handleThumbDrop.bind(this)
+        this.handleBannerDrop = this.handleBannerDrop.bind(this)
+        this.handleLogoDrop = this.handleLogoDrop.bind(this)
 
-        this.thumbRef = React.createRef();
-        this.bannerRef = React.createRef();
-        this.logoRef = React.createRef();
+        this.thumbRef = React.createRef()
+        this.bannerRef = React.createRef()
+        this.logoRef = React.createRef()
     }
 
     componentDidUpdate() {
@@ -70,19 +70,19 @@ export default class PortfolioForm extends Component {
     handleThumbDrop() {
         return {
             addedfile: file => this.setState({ thumb_image: file })
-        };
+        }
     }
 
     handleBannerDrop() {
         return {
             addedfile: file => this.setState({ banner_image: file })
-        };
+        }
     }
 
     handleLogoDrop() {
         return {
             addedfile: file => this.setState({ logo: file })
-        };
+        }
     }
 
     componentConfig() {
@@ -90,44 +90,44 @@ export default class PortfolioForm extends Component {
             iconFiletypes: [".jpg", ".png"],
             showFiletypeIcon: true,
             postUrl: "https://philhawker.devcamp.space/portfolio/portfolio_items"
-        };
+        }
     }
 
     djsConfig() {
         return {
             addRemoveLinks: true,
             maxFiles: 1
-        };
+        }
     }
 
     buildForm() {
         let formData = new FormData();
 
-        formData.append("portfolio_item[name]", this.state.name);
-        formData.append("portfolio_item[description]", this.state.description);
-        formData.append("portfolio_item[url]", this.state.url);
-        formData.append("portfolio_item[category]", this.state.category);
-        formData.append("portfolio_item[position]", this.state.position);
+        formData.append("portfolio_item[name]", this.state.name)
+        formData.append("portfolio_item[description]", this.state.description)
+        formData.append("portfolio_item[url]", this.state.url)
+        formData.append("portfolio_item[category]", this.state.category)
+        formData.append("portfolio_item[position]", this.state.position)
 
         if (this.state.thumb_image) {
-            formData.append("portfolio_item[thumb_image]", this.state.thumb_image);
+            formData.append("portfolio_item[thumb_image]", this.state.thumb_image)
         }
 
         if (this.state.banner_image) {
-            formData.append("portfolio_item[banner_image]", this.state.banner_image);
+            formData.append("portfolio_item[banner_image]", this.state.banner_image)
         }
 
         if (this.state.logo) {
-            formData.append("portfolio_item[logo]", this.state.logo);
+            formData.append("portfolio_item[logo]", this.state.logo)
         }
 
-        return formData;
+        return formData
     }
 
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
-        });
+        })
     }
 
     handleSubmit(event) {
@@ -145,48 +145,48 @@ export default class PortfolioForm extends Component {
                 }
 
                 this.setState({
-                    name: "",
-                    description: "",
-                    category: "eCommerce",
-                    position: "",
-                    url: "",
-                    thumb_image: "",
-                    banner_image: "",
-                    logo: "",
+                    name: '',
+                    description: '',
+                    category: 'eCommerce',
+                    position: '',
+                    url: '',
+                    thumb_image: '',
+                    banner_image: '',
+                    logo: '',
                     editMode: false,
-                    apiUrl: "https://philhawker.devcamp.space/portfolio/portfolio_items",
+                    apiUrl: 'https://philhawker.devcamp.space/portfolio/portfolio_items',
                     apiAction: 'post'
-                });
+                })
 
                 [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
                     ref.current.dropzone.removeAllFiles();
-                });
+                })
             })
             .catch(error => {
                 console.log("portfolio form handleSubmit error", error);
-            });
+            })
 
         event.preventDefault();
     }
 
     render() {
         return (
-            <form onSubmit={ this.handleSubmit } className="portfolio-form-wrapper">
+            <form onSubmit={ this.handleSubmit } className='portfolio-form-wrapper'>
                 <div className='two-column'>
                     <input
-                        type="text"
-                        name="name"
-                        placeholder="Portfolio Item Name"
-                        value={ this.state.name }
-                        onChange={ this.handleChange }
+                        type='text'
+                        name='name'
+                        placeholder='Portfolio Item Name'
+                        value={this.state.name}
+                        onChange={this.handleChange}
                     />
 
                     <input
-                        type="text"
-                        name="url"
-                        placeholder="URL"
-                        value={ this.state.url }
-                        onChange={ this.handleChange }
+                        type='text'
+                        name='url'
+                        placeholder='URL'
+                        value={this.state.url}
+                        onChange={this.handleChange}
                     />
                 </div>
 
