@@ -8,7 +8,9 @@ class Blog extends Component {
         super(props);
 
         this.state = {
-            blogItems: []
+            blogItems: [],
+            totalCount: 0,
+            currentPage: 0,
         };
 
 
@@ -25,10 +27,15 @@ class Blog extends Component {
     }
 
     getBlogItems() {
+        this.setState({
+            currentPage: this.state.currentPage + 1
+        })
+
         axios.get('https://philhawker.devcamp.space/portfolio/portfolio_blogs', { withCredentials: true }
         ).then(response => {
             this.setState({
-                blogItems: response.data.portfolio_blogs
+                blogItems: response.data.portfolio_blogs,
+                totalCount: response.data.meta.total_records,
             })
         }).catch(error => {
             console.log('getBlogItem error', error);
