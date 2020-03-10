@@ -22,8 +22,15 @@ class Blog extends Component {
         this.onScroll = this.onScroll.bind(this)
         window.addEventListener("scroll", this.onScroll, false)
         this.handleNewBlogClick = this.handleNewBlogClick.bind(this)
+        this.handleModalClose = this.handleModalClose.bind(this)
     }
 
+
+    handleModalClose() {
+        this.setState({
+            blogModalIsOpen: false,
+        })
+    }
 
     handleNewBlogClick() {
         this.setState({
@@ -70,27 +77,29 @@ class Blog extends Component {
 
     render() {
         const blogRecords = this.state.blogItems.map(blogItem => {
-            return <BlogItem key={ blogItem.id } blogItem={ blogItem } />
+            return <BlogItem key={blogItem.id} blogItem={blogItem} />
         })
 
 
         return (
             <div className='blog-container'>
-                <BlogModal modalIsOpen={ this.state.blogModalIsOpen } />
+                <BlogModal
+                    handleModalClose={this.handleModalClose}
+                    modalIsOpen={this.state.blogModalIsOpen} />
 
                 <div className='new-blog-link'>
-                    <a onClick={ this.handleNewBlogClick }>
+                    <a onClick={this.handleNewBlogClick}>
                         Open Modal
                     </a>
                 </div>
 
 
-                <div className='content-container'>{ blogRecords }</div>
+                <div className='content-container'>{blogRecords}</div>
 
-                { this.state.isLoading ? (
+                {this.state.isLoading ? (
                     <div className='content-loader'>
                         <FontAwesomeIcon icon='spinner' spin />
-                    </div>) : null }
+                    </div>) : null}
             </div>
         )
     }
