@@ -6,7 +6,7 @@ export default class BlogModal extends Component {
         super(props)
 
 
-        this.customStyles = {    //this "in-line styling" needs to be used with the modal library in react
+        this.customStyles = {    //this "in-line styling" is suggested to be used with 3rd party libraries in react to make sure non of the defaults overwrite our code
             content: {
                 top: '50%',
                 left: '50%',
