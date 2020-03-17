@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class Login extends Component {
     constructor(props) {
@@ -18,20 +19,20 @@ export default class Login extends Component {
 
     handleChange(event) {
         this.setState({
-          [event.target.name]: event.target.value,
-          errorText: ''
+            [event.target.name]: event.target.value,
+            errorText: ''
         })
     }
-    
+
     handleSubmit(event) {
         axios.post('https://api.devcamp.space/sessions',  // three arguments are sent: api url, data, optional with credentials 
-        {
-            client: {
-                email: this.state.email,
-                password: this.state.password
-            }
-        },
-        {withCredentials: true}  // this is referring to the COOKIES values, not login credentials
+            {
+                client: {
+                    email: this.state.email,
+                    password: this.state.password
+                }
+            },
+            { withCredentials: true }  // this is referring to the COOKIES values, not login credentials
         ).then(response => {
             if (response.data.status === 'created') {
                 this.props.handleSuccessfulAuth();
@@ -42,12 +43,12 @@ export default class Login extends Component {
                 this.props.handleUnsuccessfulAuth();
             }
         })
-        .catch(error => {
-            this.setState({
-                errorText: 'An error occured'
+            .catch(error => {
+                this.setState({
+                    errorText: 'An error occured'
+                })
+                this.props.handleUnsuccessfulAuth();
             })
-            this.props.handleUnsuccessfulAuth();
-        })
 
         event.preventDefault() // this prevents email and password being fed to the console
     }
@@ -59,26 +60,31 @@ export default class Login extends Component {
 
                 <div>{this.state.errorText}</div>
 
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                    type='email'
-                    name='email'
-                    placeholder='Your email'
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                />
+                <form onSubmit={this.handleSubmit} className='auth-form-wrapper'>
+                    <div className='form-group'>
+                        <FontAwesomeIcon icon='envelope' />
+                        <input
+                            type='email'
+                            name='email'
+                            placeholder='Your email'
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-                <input 
-                    type='password'
-                    name='password'
-                    placeholder='Your password'
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                />
+                    <div className='form-group'>
+                        <FontAwesomeIcon icon='lock' />
+                        <input
+                            type='password'
+                            name='password'
+                            placeholder='Your password'
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-                <div>
-                    <button type='submit'>Login</button>
-                </div>
+                    <button className='btn' type='submit'>Login</button>
+
                 </form>
             </div>
         )
