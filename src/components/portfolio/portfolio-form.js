@@ -109,7 +109,7 @@ export default class PortfolioForm extends Component {
         return {
             iconFiletypes: [".jpg", ".png"],
             showFiletypeIcon: true,
-            postUrl: "https://httpbin.org/post"
+            postUrl: "https://philhawker.devcamp.space/portfolio/portfolio_items"
         };
     }
 
@@ -191,22 +191,22 @@ export default class PortfolioForm extends Component {
 
     render() {
         return (
-            <form onSubmit={ this.handleSubmit } className="portfolio-form-wrapper">
+            <form onSubmit={this.handleSubmit} className="portfolio-form-wrapper">
                 <div className="two-column">
                     <input
                         type="text"
                         name="name"
                         placeholder="Portfolio Item Name"
-                        value={ this.state.name }
-                        onChange={ this.handleChange }
+                        value={this.state.name}
+                        onChange={this.handleChange}
                     />
 
                     <input
                         type="text"
                         name="url"
                         placeholder="URL"
-                        value={ this.state.url }
-                        onChange={ this.handleChange }
+                        value={this.state.url}
+                        onChange={this.handleChange}
                     />
                 </div>
 
@@ -215,14 +215,14 @@ export default class PortfolioForm extends Component {
                         type="text"
                         name="position"
                         placeholder="Position"
-                        value={ this.state.position }
-                        onChange={ this.handleChange }
+                        value={this.state.position}
+                        onChange={this.handleChange}
                     />
 
                     <select
                         name="category"
-                        value={ this.state.category }
-                        onChange={ this.handleChange }
+                        value={this.state.category}
+                        onChange={this.handleChange}
                         className="select-element"
                     >
                         <option value="eCommerce">eCommerce</option>
@@ -236,72 +236,72 @@ export default class PortfolioForm extends Component {
                         type="text"
                         name="description"
                         placeholder="Description"
-                        value={ this.state.description }
-                        onChange={ this.handleChange }
+                        value={this.state.description}
+                        onChange={this.handleChange}
                     />
                 </div>
 
                 <div className="image-uploaders">
-                    { this.state.thumb_image_url && this.state.editMode ? (
+                    {this.state.thumb_image_url && this.state.editMode ? (
                         <div className="portfolio-manager-image-wrapper">
-                            <img src={ this.state.thumb_image_url } />
+                            <img src={this.state.thumb_image_url} />
 
                             <div className="image-removal-link">
-                                <a onClick={ () => this.deleteImage("thumb_image") }>
+                                <a onClick={() => this.deleteImage("thumb_image")}>
                                     Remove file
                                  </a>
                             </div>
                         </div>
                     ) : (
                             <DropzoneComponent
-                                ref={ this.thumbRef }
-                                config={ this.componentConfig() }
-                                djsConfig={ this.djsConfig() }
-                                eventHandlers={ this.handleThumbDrop() }
+                                ref={this.thumbRef}
+                                config={this.componentConfig()}
+                                djsConfig={this.djsConfig()}
+                                eventHandlers={this.handleThumbDrop()}
                             >
                                 <div className="dz-message">Thumbnail</div>
                             </DropzoneComponent>
-                        ) }
+                        )}
 
-                    { this.state.banner_image_url && this.state.editMode ? (
+                    {this.state.banner_image_url && this.state.editMode ? (
                         <div className="portfolio-manager-image-wrapper">
-                            <img src={ this.state.banner_image_url } />
+                            <img src={this.state.banner_image_url} />
 
                             <div className="image-removal-link">
-                                <a onClick={ () => this.deleteImage("banner_image") }>
+                                <a onClick={() => this.deleteImage("banner_image")}>
                                     Remove file
                                 </a>
                             </div>
                         </div>
                     ) : (
                             <DropzoneComponent
-                                ref={ this.bannerRef }
-                                config={ this.componentConfig() }
-                                djsConfig={ this.djsConfig() }
-                                eventHandlers={ this.handleBannerDrop() }
+                                ref={this.bannerRef}
+                                config={this.componentConfig()}
+                                djsConfig={this.djsConfig()}
+                                eventHandlers={this.handleBannerDrop()}
                             >
                                 <div className="dz-message">Banner</div>
                             </DropzoneComponent>
-                        ) }
+                        )}
 
-                    { this.state.logo_url && this.state.editMode ? (
+                    {this.state.logo_url && this.state.editMode ? (
                         <div className="portfolio-manager-image-wrapper">
-                            <img src={ this.state.logo_url } />
+                            <img src={this.state.logo_url} />
 
                             <div className="image-removal-link">
-                                <a onClick={ () => this.deleteImage("logo") }>Remove file</a>
+                                <a onClick={() => this.deleteImage("logo")}>Remove file</a>
                             </div>
                         </div>
                     ) : (
                             <DropzoneComponent
-                                ref={ this.logoRef }
-                                config={ this.componentConfig() }
-                                djsConfig={ this.djsConfig() }
-                                eventHandlers={ this.handleLogoDrop() }
+                                ref={this.logoRef}
+                                config={this.componentConfig()}
+                                djsConfig={this.djsConfig()}
+                                eventHandlers={this.handleLogoDrop()}
                             >
                                 <div className="dz-message">Logo</div>
                             </DropzoneComponent>
-                        ) }
+                        )}
                 </div>
 
                 <div>

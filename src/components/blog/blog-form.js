@@ -62,7 +62,7 @@ export default class BlogForm extends Component {
         return {
             iconFiletypes: ['.jpg', '.png'],
             showFiletypeIcon: true,
-            postUrl: 'https://httpbin.org/post'
+            postUrl: 'https://philhawker.devcamp.space/portfolio/portfolio_blogs'
         }
     }
 
