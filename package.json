@@ -28,9 +28,9 @@
   "author": "Phil Hawker",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/philhawker/phil-hawker-portfolio/issues"
+    "url": "https://github.com/philhawker/philhawker/issues"
   },
-  "homepage": "https://github.com/philhawker/phil-hawker-portfolio",
+  "homepage": "https://github.com/philhawker/philhawker",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
