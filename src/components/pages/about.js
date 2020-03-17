@@ -8,6 +8,7 @@ export default function () {
                 className='left-column'
                 style={{
                     background: "url(" + profilePicture + ") no-repeat",
+                    height: 'calc(120vh - 84px)',
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
